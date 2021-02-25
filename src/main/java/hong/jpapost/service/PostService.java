@@ -28,4 +28,11 @@ public class PostService {
     public Post findOne(Long postId) {
         return postRepository.findOne(postId);
     }
+
+    @Transactional
+    public Post detail(Long postId) {
+        Post post = postRepository.findOne(postId);
+        post.plusHit();
+        return post;
+    }
 }

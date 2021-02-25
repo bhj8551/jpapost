@@ -1,6 +1,7 @@
 package hong.jpapost.service;
 
 import hong.jpapost.domain.Member;
+import hong.jpapost.domain.Post;
 import hong.jpapost.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,4 +38,5 @@ public class MemberService {
     public Member findOne(Long memberId) {
         return memberRepository.findOne(memberId);
     }
+
 }

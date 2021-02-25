@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+<!--    <table class="table" style="width: 700px; margin-bottom: 20px">-->
+<!--        <thead class="thead-dark">-->
+<!--        <tr>-->
+<!--            <th>제목</th>-->
+<!--            <th>작성자</th>-->
+<!--            <th>게시일</th>-->
+<!--            <th>조회수</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--            <td th:text="${pdd.title}"></td>-->
+<!--            <td th:text="${pdd.member.name}"></td>-->
+<!--            <td th:text="${pdd.postDate}"></td>-->
+<!--            <td th:text="${pdd.hit}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
+    <div class="like_everytime border border-danger rounded" style="padding: 15px; position: relative" >
+        <a style="float: left; margin-right: 15px">&#128515;</a>
+        <div class="profile" style="float: left; margin-bottom: 40px; height: 40px;">
+            <h6 style="font-weight: bold" th:text="${pdd.member.name}"></h6>
+            <time th:text="${pdd.postDate}"></time>
+        </div>
+        <hr style="clear: both; height: 0; border: 0;">
+        <h2 th:text="${pdd.title}"></h2>
+        <p th:text="${pdd.body}"></p>
+        <div style="position: absolute; right: 0px; bottom: 0px">
+            <span>&hearts;</span>
+            <span th:text="${pdd.hit}"></span>
+        </div>
+
+    </div>
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>

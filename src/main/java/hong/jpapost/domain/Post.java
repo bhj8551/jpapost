@@ -1,5 +1,6 @@
 package hong.jpapost.domain;
 
+import hong.jpapost.controller.PostForm;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,13 +8,12 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 public class Post {
 
     @Id
     @GeneratedValue
-    @Column(name = "order_id")
+    @Column(name = "post_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -35,9 +35,14 @@ public class Post {
         member.getPost().add(this);
     }
 
-    public static Post createPost(Member member) {
+
+    //==생성 메서드==//
+    public static Post createPost(Member member, PostForm form) {
         Post post = new Post();
         post.setMember(member);
+        post.setBody(form.getBody());
+        post.setTitle(form.getTitle());
+        post.setPostDate(LocalDateTime.now());
         post.setHit(0);
         return post;
     }

@@ -1,5 +1,6 @@
 package hong.jpapost.service;
 
+import hong.jpapost.controller.PostForm;
 import hong.jpapost.domain.Member;
 import hong.jpapost.domain.Post;
 import hong.jpapost.repository.MemberRepository;
@@ -27,8 +28,9 @@ class PostServiceTest {
         Member member = new Member();
         member.setName("member1");
         memberService.join(member);
+        PostForm postForm = new PostForm();
 
-        Post post = Post.createPost(member);
+        Post post = Post.createPost(member, postForm);
 
         //when
         Long postId = postService.post(post);
@@ -45,9 +47,10 @@ class PostServiceTest {
         Member member = new Member();
         member.setName("member1");
         memberService.join(member);
+        PostForm postForm = new PostForm();
 
-        Post post = Post.createPost(member);
-        Long postId = postService.post(post);
+        Post post = Post.createPost(member, postForm);
+        postService.post(post);
         //when
         post.plusHit();
 
