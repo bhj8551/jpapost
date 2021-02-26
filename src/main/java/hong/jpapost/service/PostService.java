@@ -30,7 +30,7 @@ public class PostService {
     }
 
     @Transactional
-    public Post detail(Long postId) {
+    public Post hitUp(Long postId) {
         Post post = postRepository.findOne(postId);
         post.plusHit();
         return post;

@@ -1,15 +1,9 @@
 package hong.jpapost.dto;
 
-import hong.jpapost.controller.PostForm;
 import hong.jpapost.domain.Member;
 import hong.jpapost.domain.Post;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Getter @Setter

@@ -55,7 +55,7 @@ public class PostController {
     @GetMapping("/posts/{postId}")
     public String postDetail(@PathVariable("postId") Long postId, Model model) {
         log.info("post Detail");
-        Post post = postService.detail(postId);
+        Post post = postService.hitUp(postId);
         PostDetailDto pdd = PostDetailDto.createPostDetailDto(post);
         model.addAttribute("pdd", pdd);
         return "posts/postDetail";
